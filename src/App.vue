@@ -25,7 +25,7 @@
       <div>
       <p> {{weather.description}}</p>
       <i class="weatherDescription"></i>
-      <i class="fas fa-location-arrow arrow-wind"></i>
+      <!-- <i class="fas fa-location-arrow arrow-wind"></i> -->
       <p> {{weather.wind}}Km/h</p>
       <p>{{weather.windDirection}}deg</p>
       </div>
@@ -100,12 +100,28 @@ methods: {
     else{
       this.isDay= false
     }
-    // const description = this.weather.description;
-    // const weatherDescription = document.querySelector('.weatherDescription')
+    const description = this.weather.description;
+    const weatherDescription = document.querySelector('.weatherDescription')
 
-    // if(description=='ciel dégagé'){
-    //    weatherDescription.classlist.add('fad fa-4x fa-sun');
-    // }
+    if(description=='ciel dégagé'){
+      weatherDescription.classList.remove("fa-sun","fa-cloud-sun","fa-cloud","fa-cloud-rain"),
+      weatherDescription.classList.add("fas", "fa-4x" ,"weatherDescription", "fa-sun");
+    }
+    if(description.includes('nuageux')){
+      weatherDescription.classList.remove("fa-sun","fa-cloud-sun","fa-cloud","fa-cloud-rain"),
+      weatherDescription.classList.add("fas", "fa-4x" ,"weatherDescription" , "fa-cloud-sun");
+      
+    }
+    if(description=='couvert'){
+      weatherDescription.classList.remove("fa-sun","fa-cloud-sun","fa-cloud","fa-cloud-rain"),
+      weatherDescription.classList.add("fas", "fa-4x" ,"weatherDescription" , "fa-cloud");
+
+    }
+    if(description.includes('pluie')){
+      weatherDescription.classList.remove("fa-sun","fa-cloud-sun","fa-cloud","fa-cloud-rain"),
+      weatherDescription.classList.add("fas", "fa-4x" ,"weatherDescription" , "fa-cloud-rain");
+      
+      }
 
       
     } catch (error) {
