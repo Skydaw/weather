@@ -73,7 +73,7 @@ methods: {
   getWeather: async function(){
     console.log(this.citySearch);
     const key = "64c46098d3af0a099a1f232581608d1e";
-    const callURL = `http://api.openweathermap.org/data/2.5/weather?q=${this.citySearch}&appid=${key}&units=metric&lang=fr`;
+    const callURL = `https://api.openweathermap.org/data/2.5/weather?q=${this.citySearch}&appid=${key}&units=metric&lang=fr`;
     // appel de l'API avec un await
     try {
       const response = await fetch(callURL)
@@ -100,13 +100,12 @@ methods: {
     else{
       this.isDay= false
     }
-    const description = this.weather.description;
-    const weatherDescription = document.querySelector('.weatherDescription')
+    // const description = this.weather.description;
+    // const weatherDescription = document.querySelector('.weatherDescription')
 
-
-    if(description=='ciel dégagé'){
-       weatherDescription.classlist.add('fad', 'fa-4x' ,'fa-sun');
-    }
+    // if(description=='ciel dégagé'){
+    //    weatherDescription.classlist.add('fad fa-4x fa-sun');
+    // }
 
       
     } catch (error) {
